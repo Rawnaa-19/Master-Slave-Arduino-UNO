@@ -8,9 +8,9 @@
     - [Code simulation](#Master-and-Slave-Code-simulation)
 1. [References](#References)
 ## Introduction
-The second task for the Internet of Things Department is connecting two Arduino UNOs. To accomplish this task, I used the I2C protocol to make the Arduinos communicate with each other. The I2C "Inter-integrated circuit" is a serial communication protocol designed to send data along a single wire.(Campbell, 2021) The I2C protocol requires two connections: The first connection is used to send the data "SDA" and an additional connection for the clock signal "SCL" since it is a synchronous communication.(Campbell, 2021) 
-To implement this protocol in this task, one Arduino will be the master, and the other Arduino will be the slave. Communication is initiated by the master Arduino, which generates the clock signal.(Master Reader/Slave Sender, n.d.)The slave Arduino has its own unique address, so it is easy to identify it.(Master Reader/Slave Sender, n.d.)<br><br> 
-<kbd> **Figure 1** <br><br>*I2C Connections*<br><br> <kbd>![image](https://github.com/Rawnaa-19/Master-Slave-Arduino-UNO/assets/106926557/f9fc7f67-7fa0-4b80-a5d7-9328e8db86d3)<br><br>(Understanding the Differences Between UART and I2C, 2023)</kbd></kbd>
+The second task for the Internet of Things Department is connecting two Arduino UNOs. To accomplish this task, I used the I2C protocol to make the Arduinos communicate with each other. The I2C "Inter-integrated circuit" is a serial communication protocol designed to send data along a single wire.[^1] The I2C protocol requires two connections: The first connection is used to send the data "SDA" and an additional connection for the clock signal "SCL" since it is a synchronous communication.[^1]
+To implement this protocol in this task, one Arduino will be the master, and the other Arduino will be the slave. Communication is initiated by the master Arduino, which generates the clock signal.[^2]The slave Arduino has its own unique address, so it is easy to identify it.[^2]<br><br> 
+<kbd> **Figure 1** <br><br>*I2C Connections*<br><br> <kbd>![image](https://github.com/Rawnaa-19/Master-Slave-Arduino-UNO/assets/106926557/f9fc7f67-7fa0-4b80-a5d7-9328e8db86d3)<br><br>(Understanding the Differences Between UART and I2C, 2023)[^3]</kbd></kbd>
 
 ## A Master and a Slave
 The goal of this task is to control an LED with a push button, where the push button is connected to the master Arduino and the LED is connected to the slave Arduino.
@@ -30,7 +30,7 @@ The push button is connected to pin 7 of the Master Arduino. And the LED is conn
 
 ### Master and Slave Arduino Code
 The master Arduino code will read the push button value. If the button is pushed it will send 0 to the slave Arduino and 1 otherwise. 
-The slave Arduino code will turn on the LED for 200ms if the recieved value was 0, other wise it will be turned off.<br><br>
+In the slave Arduino code, if the value received is 0 for 200ms, the LED will be turned on, otherwise it will be turned off.[^2]<br><br>
 
 **Master Arduino Code**
 ```
@@ -91,3 +91,7 @@ void loop() {
 
 https://github.com/Rawnaa-19/Master-Slave-Arduino-UNO/assets/106926557/034e8242-e8b9-4989-b95c-b5dc019698d8
 
+## References
+[^1]: Campbell, S. (2021, November 14). Basics of the I2C communication Protocol. Circuit Basics. https://www.circuitbasics.com/basics-of-the-i2c-communication-protocol/
+[^2]: Master Reader/Slave Sender. (n.d.). Arduino. https://wiki-content.arduino.cc/en/Tutorial/LibraryExamples/MasterReader
+[^3]: Understanding the differences between UART and I2C. (2023, May 17). Total Phase Blog. https://www.totalphase.com/blog/2020/12/differences-between-uart-i2c/
