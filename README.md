@@ -32,8 +32,7 @@ The push button is connected to pin 7 of the Master Arduino. And the LED is conn
 The master Arduino code will read the push button value. If the button is pushed it will send 0 to the slave Arduino and 1 otherwise. 
 The slave Arduino code will turn on the LED for 200ms if the recieved value was 0, other wise it will be turned off.
 
-```
-**Master Arduino Code**
+<kbd> **Master Arduino Code**
 ```
 // Include the required Wire library for I2C
 #include<Wire.h>
@@ -56,10 +55,9 @@ void loop() {
 }
 
 ```
-```
+</kbd>
 
-```
-**Slave Arduino Code**
+<kbd> **Slave Arduino Code** 
 ```
 // Include the required Wire library for I2C
 #include <Wire.h>
@@ -90,4 +88,4 @@ void loop() {
 }
 
 ```
-```
+</kbd>
